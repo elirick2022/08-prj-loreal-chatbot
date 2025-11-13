@@ -3,7 +3,7 @@ const chatForm = document.getElementById("chatForm");
 const userInput = document.getElementById("userInput");
 const chatWindow = document.getElementById("chatWindow");
 
-const WORKER_URL = "https://your-cloudflare-worker-url.workers.dev"; // replace with your Cloudflare Worker URL
+const WORKER_URL = "https://dark-cherry-630d.ericken.workers.dev"; // replace with your Cloudflare Worker URL
 const systemPrompt = `You are a friendly L’Oréal Skincare Product Advisor, specializing in personalized skincare recommendations. You help users understand their skin type, identify their concerns, and choose the most suitable L’Oréal products — including cleansers, serums, moisturizers, sunscreens, and targeted treatments. Provide clear, helpful explanations about ingredients, usage routines, and how products work together. If a user's query is unrelated to skincare or L’Oréal products, politely respond by stating that you do not know.`;
 let messages = [{ role: "system", content: systemPrompt }];
 
