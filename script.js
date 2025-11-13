@@ -10,7 +10,11 @@ let messages = [{ role: "system", content: systemPrompt }];
 function addMessage(content, sender) {
   const msg = document.createElement("div");
   msg.classList.add("msg", sender); // sender = "user" or "ai"
-  msg.textContent = content;
+
+  // Preserve line breaks by converting \n to <br>
+  const formattedContent = content.replace(/\n/g, "<br>");
+  msg.innerHTML = formattedContent;
+
   chatWindow.appendChild(msg);
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }
@@ -37,9 +41,9 @@ chatForm.addEventListener("submit", async (e) => {
   // clear input
   userInput.value = "";
 
-  // show "typing..." placeholder
+  // show "typing..." placeholder with animation
   const thinkingMsg = document.createElement("div");
-  thinkingMsg.classList.add("msg", "ai");
+  thinkingMsg.classList.add("msg", "ai", "thinking");
   thinkingMsg.textContent = "Thinking…";
   chatWindow.appendChild(thinkingMsg);
   chatWindow.scrollTop = chatWindow.scrollHeight;
